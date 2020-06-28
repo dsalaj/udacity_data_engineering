@@ -159,10 +159,8 @@ def process_log_data(spark, input_data, output_data):
 
 def main():
     spark = create_spark_session()
-    # input_data = "./data/" if LOCAL else "s3a://udacity-dend/"
-    input_data = "./data/" if LOCAL else "s3a://udacity-s3-emr/"
-    output_data = "./output/" if LOCAL else "s3a://udacity-s3-emr/"
-    
+    input_data = "./data/" if LOCAL else "s3a://udacity-dend/"
+    output_data = "./output/" if LOCAL else config.get('default', 'OUTPUT_S3')
     process_song_data(spark, input_data, output_data)
     process_log_data(spark, input_data, output_data)
 
