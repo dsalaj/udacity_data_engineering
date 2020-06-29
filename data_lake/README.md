@@ -21,3 +21,11 @@ The data schema still follows the previous star schema to allow for the easy and
 - time - timestamps of records in songplays broken down into specific units  
 `start_time, hour, day, week, month, year, weekday`
 
+## Deploying on AWS
+
+Make sure to create an EMR cluster with at least three m5.xlarge nodes (1 Master + 2 Core) for executing the `etl.py` script.
+On a smaller cluster (like Notebook cluster) the script will fail with:
+
+    org.apache.hadoop.util.DiskChecker$DiskErrorException: No space available in any of the local directories.
+
+
